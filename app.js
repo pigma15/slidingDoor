@@ -13,6 +13,9 @@ let dragState = false;
 let dragPos = 0;
 let currentMarginLeft = 0;
 
+let raycaster;
+let mouse;
+
 function init() {
     door = document.querySelector('.door');
     handleDOM = document.querySelector('.handle');
@@ -57,13 +60,13 @@ function animate () {
     
     renderer.setSize(door.clientWidth, door.clientHeight);
     renderer.render(scene, camera);
+
     requestAnimationFrame(animate);
 }
 
 init();
 
 handleDOM.addEventListener('mousedown', e => {
-    console.log(e);
     dragPos = e.clientX;
     dragState = true;
     return;
@@ -88,4 +91,3 @@ window.addEventListener('mousemove', e => {
     }
     return;
 });
-
